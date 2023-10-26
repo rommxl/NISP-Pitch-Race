@@ -1,0 +1,24 @@
+.selection-body{
+    padding: 5rem;
+}
+
+.bg-brown{
+    background-color: #4d3227;
+}
+
+.bg-orange{
+    background-color: #cd7700;
+}
+
+.txt-orange{
+    color: #cd7700;
+}
+
+.fontLarge{
+    font-size: 2rem;
+}
+
+.card{
+    margin: 1rem;
+    padding: 1rem;
+}
