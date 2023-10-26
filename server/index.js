@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import TeamScores from "./models/score.js";
 
 const app = express();
-const port = 3000;
+const port = 4000;
 const __dirname =  dirname(fileURLToPath(import.meta.url))
 const cli = "";
 app.use(cors());
@@ -15,7 +15,6 @@ app.use(cors());
 
 mongoose.connect("mongodb://127.0.0.1:27017/nisp_pitch_race", {useNewUrlParser : true})
     .then(() => {
-        // const connect = 
         console.log("Connected to database");
     })
     .catch((error) => {
@@ -28,6 +27,6 @@ app.listen(port,() => {
 })
 
 app.get("/leaderboard", async(req,res) => {
-    const top10 = await TeamScores.find().exec();
+    const top10 = await TeamScores.find().sort({score:'desc'}).exec();
     res.send(top10);
 });
