@@ -1,3 +1,6 @@
+body{
+    background: linear-gradient(90deg, #AB8574 8.7%, #784E3D 47.5%, #4d3227 89.1%);}
+
 .selection-body{
     padding: 5rem;
 }
@@ -23,6 +26,17 @@
     padding: 1rem;
 }
 
-.hello{
-    background-color: #4d3227   ;
+.col-sm-4{
+    border-radius: 1rem;
+}
+
+.rounded{
+    border-radius: 1rem;
+}
+
+.styled-div{
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    
 }

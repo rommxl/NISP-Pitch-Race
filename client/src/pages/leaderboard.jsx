@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/card";
-
-// function fillData(){
-//     var details = []
-//     axios
-//     .get("http://localhost:4000/leaderboard")
-//     .then(data => {
-//         setDetails(data);}
-//         );
-
-//     return details;
-// };
+import Navbar from "../components/navbar";
 
 function createLeaderBoard(team){
 
@@ -32,8 +22,9 @@ function Leaderboard(){
     
     return(
     <div>
+        <Navbar/>
         <div style={{display:"flex" ,justifyContent:"center"}}>
-            <div className="hello" style={{display:"flex",flexDirection:"column"}}>
+            <div  style={{display:"flex",flexDirection:"column"}}>
                 {details.map(createLeaderBoard)}
             </div>
         </div>
