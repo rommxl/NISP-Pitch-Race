@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navbar";
+import axios from "axios";
 
 function Login(){
 
+    const [auth,setAuth] = useState("");
+    
+    function authenticate(event){
+        const pass = event.target[0].value;
+        axios
+        .post("http://localhost:4000/auth",{pass:pass})
+        .then(data => {
+            const obj = data.data;
+            const status = obj.status;
+            setAuth(status);
+            localStorage.setItem("token",status);
+            console.log(localStorage.getItem("token"));
+        })
+
+
+    }
+
     return (
+        
         <div>
             <Navbar/>
             <div style={{display:"flex", justifyContent:"center",padding:"1rem"}}>
-                <form action="admin" className="form-inline bg-orange rounded" style={{display:"flex", justifyContent:"center",alignItems:"center", flexDirection:"column"}}>
+                <form onSubmit={authenticate} action="admin" className="form-inline bg-orange rounded" style={{display:"flex", justifyContent:"center",alignItems:"center", flexDirection:"column"}}>
                     <div className="form-group mx-sm-3 mb-2">
                         <input type="password" className="form-control" id="inputPassword2" placeholder="Password" style={{marginTop:"1rem"}}/>
                     </div>
