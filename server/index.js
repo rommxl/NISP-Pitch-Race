@@ -6,9 +6,12 @@ import storylines from "./models/stories.js";
 import ChallengeScores from "./models/hurdlewise.js";
 import Time from "./models/teams.js";
 import hash from "./routers and connectors/auth.js";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 3000;
 
 // -------------------------------Midlleware----------------------------
 
@@ -27,7 +30,7 @@ mongoose.connect(url, {useNewUrlParser : true})
     });
 
 
-app.listen(port,"0.0.0.0",() => {
+app.listen(port,() => {
     console.log(`The server is listening to port ${port}.`);
 })
 

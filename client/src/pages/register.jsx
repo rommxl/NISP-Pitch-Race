@@ -10,7 +10,7 @@ function Register(){
         const story = parseInt(event.target[1].value,10);
 
         axios
-        .post("http://nisp-dnd-server-production.up.railway.app:4000/registerteam",{
+        .post("http://nisp-dnd-server-production.up.railway.app/registerteam",{
             name:name,
             story:story
         });
