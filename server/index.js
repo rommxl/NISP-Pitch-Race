@@ -27,7 +27,7 @@ mongoose.connect(url, {useNewUrlParser : true})
     });
 
 
-app.listen(port,() => {
+app.listen(port,"0.0.0.0",() => {
     console.log(`The server is listening to port ${port}.`);
 })
 

@@ -14,7 +14,7 @@ function Leaderboard(){
     const [details,setDetails] = useState([]);
     useEffect(()=>{
         axios
-        .get("http://nisp-dnd-server-production.up.railway.app:4000/leaderboard")
+        .get("http://nisp-dnd-server-production.up.railway.app/leaderboard")
         .then(data => {
             setDetails(data.data);}
             );
