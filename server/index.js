@@ -5,6 +5,7 @@ import TeamScores from "./models/score.js";
 import storylines from "./models/stories.js";
 import ChallengeScores from "./models/hurdlewise.js";
 import Time from "./models/teams.js";
+import hash from "./routers and connectors/auth.js";
 
 const app = express();
 const port = 4000;
@@ -37,6 +38,19 @@ app.get("/leaderboard", async(req,res) => {
 });
 
 // ---------------------------------posts-----------------------------------
+
+
+
+app.post("/auth", async(req,res) => {
+    const verify = "399f5c0681f186364ca51b14cad5b46fd67e3e1160f8563328def854713d1a97"
+    const pass = req.body.pass;
+    if(hash(pass) === verify){
+        res.send({status:"verifiedandchecked123"});
+    }
+    else{
+        res.send({status:""});
+    }
+})
 
 app.post("/teams", async(req,res) => {
     const team_name = req.body.name
