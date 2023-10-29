@@ -5,7 +5,7 @@ import Navbar from "../components/navbar";
 
 function createLeaderBoard(team){
 
-    return <Card key={team._id} name={team.name} score={team.score}/>
+    return <Card key={team._id} name={team.name} score={team.score} story={team.story}/>
 };
 
 
@@ -20,6 +20,7 @@ function Leaderboard(){
             );
     });
     
+
     return(
     <div>
         <Navbar/>
@@ -31,7 +32,7 @@ function Leaderboard(){
     </div>
         
         
-    )
-};
+    );
+}
 
 export default Leaderboard;

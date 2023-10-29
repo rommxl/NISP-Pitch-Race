@@ -9,17 +9,10 @@ function createTeamOptions(team){
     );
 }
 
-function createActivityOptions(activity){
-
-    return(
-        <Options key={activity} name={activity}/>
-    );
-}
 
 
 function Dropdown(){
     const [teams,setTeams] = useState([]);
-    const [activities,setActivities] = useState([]);
 
     useEffect(()=>{
         axios
@@ -30,37 +23,63 @@ function Dropdown(){
         })
     })
 
-    function changeActivity(event){
-        event.preventDefault()
-        axios
-        .post("http://localhost:4000/teams",{name:event.target.value})
-        .then(res => {
-            setActivities(res.data);
-        })
+    function submitScore(event){
+        
+        const name = event.target[0].value;
+        const challenge = event.target[1].value;
+        if(challenge === "Choose challenge" || name === "Teams"){
+            window.location.reload();
+        }
+        else{
+            const score = parseInt(event.target[2].value,10);
+        
+            axios
+            .post("http://localhost:4000/updatescores",{
+                team_name:name,
+                challenge_name:challenge,
+                challenge_score:score
+            })
+        }
+        
+
     }
     
 
     return(
 <div className="styled-div" >
-    <form className="row gy-2 gx-3 align-items-center" style={{display:"flex",justifyContent:"center"}}>
+    <form onSubmit={submitScore} className="row gy-2 gx-3 align-items-center" style={{display:"flex",justifyContent:"center"}}>
+        
         <div className="col-auto">
-            <select className="form-select" id="autoSizingSelect" onChange={changeActivity}>
+            <select className="form-select" id="autoSizingSelect" >
             <option selected>Teams</option>
             {teams.map(createTeamOptions)}
             </select>
         </div>
+
         <div className="col-auto">
-            <select className="form-select" id="autoSizingSelect">
+            <select className="form-select" id="autoSizingSelect" defaultValue={"Challenge"}>
             <option selected>Choose challenge</option>
-            {activities.map(createActivityOptions)}
+            <option value={"Cold call"}>Cold call</option>
+            <option value={"Advertisment"}>Canva</option>
+            <option value={"8th floor GK"}>GK</option>
+            <option value={"Elevator pitch"}>Elevator pitch</option>
+            <option value={"Coding"}>Coding</option>
+            <option value={"Chess"}>Chess</option>
+            <option value={"Sell me the pen"}>Sell me the pen</option>
+            <option value={"Promotion reel"}>Reel</option>
+            <option value={"Interview"}>Interview</option>
+            <option value={"Interview"}>Penalty</option>
             </select>
         </div>
+
         <div className="col-auto">
             <input type="number" className="form-control" id="autoSizingInput" placeholder="Enter Score"/>
         </div>
+
         <div className="col-auto">
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Submit</button>
         </div>
+
     </form>
 </div>
     );

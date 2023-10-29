@@ -8,6 +8,7 @@ function Card(props){
                 <div className="card-body rounded">
                     <h5 className="card-title">Team: {props.name}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Score: {props.score}</h6>
+                    <h6 className="card-subtitle mb-2 text-muted">Story: {props.story}</h6>
                 </div>
             </div>
             <div className="">
