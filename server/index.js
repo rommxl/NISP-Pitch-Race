@@ -38,6 +38,10 @@ app.get("/leaderboard", async(req,res) => {
     res.send(top10);
 });
 
+app.get("/", async(req,res) => {
+    res.send("Hello");
+});
+
 // ---------------------------------posts-----------------------------------
 
 
