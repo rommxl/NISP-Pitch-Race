@@ -1,10 +1,14 @@
 import { ListCollectionsCursor } from "mongodb";
 import mongoose from "mongoose";
 
-const teamschema = new mongoose.Schema({
-    _id:String,
-    Tname:String,
-    Mname:[String]
+const timeKeeping = new mongoose.Schema({
+    name:String,
+    start:Date,
+    end:Date,
+    tot:Number,
+    over:Boolean
 });
 
-const Teams = mongoose.model("Teams",teamschema)
+const Time = mongoose.model("Teams",timeKeeping);
+
+export default Time;
