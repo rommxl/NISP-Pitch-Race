@@ -14,10 +14,11 @@ const port = 4000;
 
 app.use(cors());
 app.use(express.json())
+const url = "mongodb+srv://bodhisatyaghosh:1iQnlVcuV06cVizn@nisppitchhunt.yygcxhz.mongodb.net/?retryWrites=true&w=majority";
 
 // -----------------------------------------------------------
 
-mongoose.connect("mongodb://127.0.0.1:27017/nisp_pitch_race", {useNewUrlParser : true})
+mongoose.connect(url, {useNewUrlParser : true})
     .then(() => {
         console.log("Connected to database");
     })
@@ -104,9 +105,13 @@ app.post("/starttime", async(req,res) => {
     const name = req.body.name;
     const d = new Date();
     const curr_time = d.getTime();
-    const exist = await Time.findOne({name:name}).exec();
-    exist.start = curr_time;
-    exist.save();
+    const cnt = await Time.findOne({name:name}).count();
+    if(cnt != 0){
+        const exist = await Time.findOne({name:name}).exec();
+        exist.start = curr_time;
+        exist.save();
+    }
+    
 });
 
 app.post("/endtime", async(req,res) => {

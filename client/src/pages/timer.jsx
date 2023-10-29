@@ -57,7 +57,6 @@ function Timer(){
             setTimeTaken(time)
         })
         
-        event.preventDefault()
     }
 
     return(
