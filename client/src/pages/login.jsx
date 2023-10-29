@@ -9,7 +9,7 @@ function Login(){
     function authenticate(event){
         const pass = event.target[0].value;
         axios
-        .post("http://nisp-dnd-server-production.up.railway.app/auth",{pass:pass})
+        .post("https://nisp-dnd-server-production.up.railway.app/auth",{pass:pass})
         .then(data => {
             const obj = data.data;
             const status = obj.status;
@@ -18,7 +18,10 @@ function Login(){
             console.log(localStorage.getItem("token"));
         })
 
-
+        if(localStorage.getItem("token") === ""){
+            event.preventDefault();
+        }
+        
     }
 
     return (

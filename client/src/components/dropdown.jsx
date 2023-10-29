@@ -16,7 +16,7 @@ function Dropdown(){
 
     useEffect(()=>{
         axios
-        .get("http://nisp-dnd-server-production.up.railway.app/leaderboard")
+        .get("https://nisp-dnd-server-production.up.railway.app/leaderboard")
         .then((data)=>{
             setTeams(data.data);
             // console.log(data.name);
@@ -34,7 +34,7 @@ function Dropdown(){
             const score = parseInt(event.target[2].value,10);
         
             axios
-            .post("http://nisp-dnd-server-production.up.railway.app/updatescores",{
+            .post("https://nisp-dnd-server-production.up.railway.app/updatescores",{
                 team_name:name,
                 challenge_name:challenge,
                 challenge_score:score

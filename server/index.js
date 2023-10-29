@@ -15,7 +15,13 @@ const port = process.env.PORT || 3000;
 
 // -------------------------------Midlleware----------------------------
 
-app.use(cors());
+const corsOrigin ={
+    origin:'https://nisp-dnd-client-production.up.railway.app', //or whatever port your frontend is using
+    credentials:true,            
+    optionSuccessStatus:200
+}
+app.use(cors(corsOrigin));
+// app.use(cors());
 app.use(express.json())
 const url = "mongodb+srv://bodhisatyaghosh:1iQnlVcuV06cVizn@nisppitchhunt.yygcxhz.mongodb.net/?retryWrites=true&w=majority";
 
@@ -125,9 +131,17 @@ app.post("/endtime", async(req,res) => {
     const name = req.body.name;
     const d = new Date();
     const curr_time = d.getTime();
+    // const exist = await Time.findOne({name:name}).exec();
+    // if(exist.over === false)
+    // {
+        // exist.end = curr_time;
+        // exist.tot = (exist.end - exist.start);
+        // exist.over = true;
+    //     exist.save();
+    // }
+    const cnt = await Time.findOne({name:name}).count();
     const exist = await Time.findOne({name:name}).exec();
-    if(exist.over === false)
-    {
+    if(cnt != 0){
         exist.end = curr_time;
         exist.tot = (exist.end - exist.start);
         exist.over = true;

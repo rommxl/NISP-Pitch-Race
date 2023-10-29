@@ -5,15 +5,17 @@ import axios from "axios";
 function Register(){
 
     function registerTeam(event){
-
+        
         const name = event.target[0].value;
         const story = parseInt(event.target[1].value,10);
 
         axios
-        .post("http://nisp-dnd-server-production.up.railway.app/registerteam",{
+        .post("https://nisp-dnd-server-production.up.railway.app/registerteam",{
             name:name,
             story:story
         });
+        event.preventDefault();
+        window.location.reload(false);
     }
 
 
