@@ -17,7 +17,7 @@ function Timer(){
 
     useEffect(()=>{
         axios
-        .get("http://localhost:4000/leaderboard")
+        .get("http://nisp-dnd-server-production.up.railway.app:4000/leaderboard")
         .then((data)=>{
             setTeams(data.data);
             // console.log(data.name);
@@ -35,7 +35,7 @@ function Timer(){
             window.location.reload(true);
         }
         axios
-        .post("http://localhost:4000/starttime",{
+        .post("http://nisp-dnd-server-production.up.railway.app:4000/starttime",{
             name:tempTeam
         })
         
@@ -48,7 +48,7 @@ function Timer(){
         }
 
         axios
-        .post("http://localhost:4000/endtime",{
+        .post("http://nisp-dnd-server-production.up.railway.app:4000/endtime",{
             name:tempTeam
         })
         .then(data=>{

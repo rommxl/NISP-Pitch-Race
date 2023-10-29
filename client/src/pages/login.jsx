@@ -9,7 +9,7 @@ function Login(){
     function authenticate(event){
         const pass = event.target[0].value;
         axios
-        .post("http://localhost:4000/auth",{pass:pass})
+        .post("http://nisp-dnd-server-production.up.railway.app:4000/auth",{pass:pass})
         .then(data => {
             const obj = data.data;
             const status = obj.status;
