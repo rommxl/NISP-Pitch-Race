@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/card";
 import Navbar from "../components/navbar";
+import NavbarNolog from "../components/navbarNolog";
 
 function createLeaderBoard(team){
 
@@ -23,7 +24,7 @@ function Leaderboard(){
 
     return(
     <div>
-        <Navbar/>
+        <NavbarNolog/>
         <div style={{display:"flex" ,justifyContent:"center"}}>
             <div  style={{display:"flex",flexDirection:"column"}}>
                 {details.map(createLeaderBoard)}

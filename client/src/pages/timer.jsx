@@ -76,6 +76,25 @@ function Timer(){
             </form>
         </div>
         <h3 style={{textAlign:"center"}}>Total time taken was {Math.floor((timeTaken/1000)/60)} minutes and {Math.floor((timeTaken/1000)%60)} seconds</h3>
+        
+        <div className="col-auto" style={{display:"flex",justifyContent:"center",marginBottom:"1rem"}}>
+            <form action="/register">
+                <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Register</button>
+            </form>
+        </div>
+
+        <div className="col-auto" style={{display:"flex",justifyContent:"center",marginBottom:"1rem"}}>
+            <form action="/admin">
+                <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Activity points</button>
+            </form>
+        </div>
+
+        <div className="col-auto" style={{display:"flex",justifyContent:"center"}}>
+            <form action="/leaderboard">
+                <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Leaderboard</button>
+            </form>
+        </div>
+    
     </div>
         
         

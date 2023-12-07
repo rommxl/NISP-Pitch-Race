@@ -15,9 +15,15 @@ function Admin(){
                 </form>
             </div>
 
-            <div className="col-auto" style={{display:"flex",justifyContent:"center"}}>
+            <div className="col-auto" style={{display:"flex",justifyContent:"center",marginBottom:"1rem"}}>
                 <form action="/timer">
                     <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Timer</button>
+                </form>
+            </div>
+
+            <div className="col-auto" style={{display:"flex",justifyContent:"center"}}>
+                <form action="/leaderboard">
+                    <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Leaderboard</button>
                 </form>
             </div>
         </div>

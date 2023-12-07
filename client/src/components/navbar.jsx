@@ -1,5 +1,5 @@
 import React from "react";
-import sunglass from './static/imgs/sunglasses.png'
+import logo from './static/imgs/dnd_nisp-removebg-preview - Copy.png'
 
 function Navbar(){
     
@@ -10,8 +10,8 @@ function Navbar(){
     return (
     <nav className="navbar navbar-light  bg-brown" style={{display:"flex", justifyContent:"center", marginBottom:"1rem"}}>
         <a className="navbar-brand" href="#"style={{display:"flex", alignItems:"center"}}>
-            <img src={sunglass} width="75" height="75" style={{padding: 5}} className="d-inline-block align-top" alt=""/>
-            <p style={{color: "#cd7700"}}>Production Chashma </p>
+            <img src={logo} width="100" height="100" style={{padding: 5}} className="d-inline-block align-top" alt=""/>
+            <p style={{color: "#cd7700",fontSize:"3rem"}}>Dreams and Deals</p>
         </a>
         <div  className="col-auto" style={{position:"absolute", right:"0",marginRight:"0.5rem"}}>
             <form onSubmit={logout} action="/">
@@ -20,5 +20,7 @@ function Navbar(){
         </div>
     </nav>);
 }
+
+
 
 export default Navbar;

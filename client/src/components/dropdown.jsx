@@ -73,11 +73,11 @@ function Dropdown(){
         </div>
 
         <div className="col-auto">
-            <input type="number" className="form-control" id="autoSizingInput" placeholder="Enter Score"/>
+            <input type="number" step="0.01" className="form-control" id="autoSizingInput" placeholder="Enter Score"/>
         </div>
 
         <div className="col-auto">
-            <button type="submit" className="btn btn-primary bg-orange" style={{border:"0px"}}>Submit</button>
+            <button type="submit"  className="btn btn-primary bg-orange" style={{border:"0px"}}>Submit</button>
         </div>
 
     </form>
