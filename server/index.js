@@ -147,6 +147,5 @@ app.post("/endtime", async(req,res) => {
         exist.over = true;
         exist.save();
     }
-    console.log(exist)
     res.send({time:exist.tot});
 });
